@@ -85,15 +85,15 @@ imagesGalleryList.innerHTML = imagesGalleryItem;
 
 imagesGalleryList.addEventListener('click', event => {
   event.preventDefault();
-  if (event.target.nodeName === 'img') {
+  if (event.target.nodeName !== 'IMG') {
     return;
   }
 
   const imageEl = event.target.dataset.source;
 
   const modalWindowInstance = basicLightbox.create(
-    `<img width="1112" height="640" src="${imageEl.img}"
-        />`,
+    `<img width="1112" height="640" src="${imageEl}"
+          />`,
 
     {
       className: 'modal',
@@ -105,13 +105,3 @@ imagesGalleryList.addEventListener('click', event => {
   );
   modalWindowInstance.show();
 });
-
-//   document.querySelector('img').onclick = () => {
-//     basicLightbox
-//       .create(
-//         `
-// 		<img width="1112" height="640" src="${image.original}">`
-//       )
-//       .show();
-//   };
-// });
