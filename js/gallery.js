@@ -86,7 +86,6 @@ imagesGalleryList.innerHTML = imagesGalleryItem;
 imagesGalleryList.addEventListener('click', event => {
   event.preventDefault();
   if (event.target.nodeName === 'img') {
-    openModal(event.target.dataset.source);
     return;
   }
 
