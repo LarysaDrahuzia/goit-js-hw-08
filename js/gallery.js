@@ -86,39 +86,35 @@ imagesGalleryList.innerHTML = imagesGalleryItem;
 imagesGalleryList.addEventListener('click', event => {
   event.preventDefault();
   if (event.target.nodeName === 'img') {
+    openModal(event.target.dataset.source);
     return;
   }
 
-  //   const modalWindowInstance = basicLightbox.create(
-  //     `<li class="gallery-item">
-  //     <a class="gallery-link-modal" href="${image.original}">
-  //       <img
-  //         class="gallery-image-modal"
-  //         src="${image.original}"
-  //         data-source="${image.original}"
-  //         alt="${image.description}"
-  //       />
-  //     </a>
-  //   </li>`,
-  //     {
-  //       onShow() {
-  //         document.addEventListener('click', onEscapePress);
-  //       },
+  const imageEl = event.target.dataset;
 
-  //       onClose() {
-  //         console;
-  //       },
-  //     }
-  //   );
-  //   modalWindowInstance.show();
-  // });
+  const modalWindowInstance = basicLightbox.create(
+    `<img width="1112" height="640" src="${imageEl.img}"
+        />`,
 
-  document.querySelector('img').onclick = () => {
-    basicLightbox
-      .create(
-        `
-		<img width="1112" height="640" src="${image.original}">`
-      )
-      .show();
-  };
+    {
+      className: 'modal',
+    },
+
+    {
+      onShow() {},
+
+      onClose() {},
+    }
+  );
+  modalWindowInstance.show();
 });
+
+//   document.querySelector('img').onclick = () => {
+//     basicLightbox
+//       .create(
+//         `
+// 		<img width="1112" height="640" src="${image.original}">`
+//       )
+//       .show();
+//   };
+// });
