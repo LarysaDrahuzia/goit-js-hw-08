@@ -90,7 +90,7 @@ imagesGalleryList.addEventListener('click', event => {
     return;
   }
 
-  const imageEl = event.target.dataset;
+  const imageEl = event.target.dataset.source;
 
   const modalWindowInstance = basicLightbox.create(
     `<img width="1112" height="640" src="${imageEl.img}"
@@ -98,9 +98,7 @@ imagesGalleryList.addEventListener('click', event => {
 
     {
       className: 'modal',
-    },
 
-    {
       onShow() {},
 
       onClose() {},
